@@ -1,3 +1,13 @@
+
+@media only screen and (max-width: 480px) {
+    
+:root {
+    --app-background: #061c2a;
+    --text-colour: white;
+    --input-button-background: #0b283a;
+    --highlight-blue: #439add;
+}
+   
 * {
     margin: 0;
     box-sizing: border-box;
@@ -12,4 +22,34 @@ body {
     width: 100vw;
     display: grid;
     place-items: center;
+}
+
+#app-container {
+    min-width: 330px;
+    min-height: 720px;
+    background: var(--app-background);
+}
+
+h2 {
+    background: #103147;
+    color: var(--text-colour);
+    padding: 15px;
+}
+
+#category-label {
+    color: var(--text-colour);
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#category-input {
+    background: var(--input-button-background);
+    border: 2px solid var(--highlight-blue);
+    margin-left: 14px;
+    padding: 7px;
+    width: 89%;
+}
+
 }
