@@ -25,12 +25,20 @@
     <div id="container">
       <div id="app-container">
         <h2>Add to inventory</h2>
-        <label for="category-input" id="category-label"
+        <label
+          for="category-input"
+          id="category-label"
+          class="margin-left stack"
           >Create a new category</label
         >
-        <input type="text" name="category-input" id="category-input" />
+        <input
+          type="text"
+          name="category-input"
+          id="category-input"
+          class="margin-left stack"
+        />
 
-        <div id="picker-grid">
+        <div id="picker-grid" class="margin-left stack">
           <span id="icon-container">
             <i class="fa-solid fa-ghost selector-icons"></i>
           </span>
@@ -42,6 +50,10 @@
             Icon <i class="fa-solid fa-circle-plus"></i>
           </button>
         </div>
+
+        <section class="margin-left stack">
+          <h3 id="existing-category-header">Select existing category</h3>
+        </section>
 
         <div class="selector-container-closed">
           <i class="fa-solid fa-martini-glass-citrus selector-icons"></i>
