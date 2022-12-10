@@ -6,6 +6,8 @@
     --text-colour: white;
     --input-button-background: #0b283a;
     --highlight-blue: #439add;
+    --default-icon-container-background: #cea720;
+    --icon-border-colour: #153c57;
 }
    
 * {
@@ -97,4 +99,17 @@ i{
     margin: 5px;
 }
 
+}
+
+/* Picker grid styles */
+#icon-container {
+    height: 55px;
+    width: 55px;
+    display: grid;
+    background: var(--default-icon-container-background);
+    border: 7px solid var(--icon-border-colour);
+    grid-row: 1 /3;
+    align-self: center;
+    justify-self: center;
+    place-content: center;
 }
