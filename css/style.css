@@ -3,6 +3,7 @@
     
 :root {
     --app-background: #061c2a;
+    --header-background: #103147;
     --text-colour: white;
     --input-button-background: #0b283a;
     --highlight-blue: #439add;
@@ -45,7 +46,7 @@ body {
 
 /* App header styles */
 h2 {
-    background: #103147;
+    background: var(--header-background);
     color: var(--text-colour);
     padding: 15px;
 }
@@ -67,22 +68,23 @@ h2 {
 }
 
 /* Icon and colour selector styles and animation */
-.selector-container-closed {
+.icon-selector-container-closed {
     max-width: 138px;
     border: 2px solid var(--highlight-blue);
     display: flex;
     flex-flow: row wrap;
     position: absolute;
-    top: 300px;
-    left: 169px;
+    top: 252px;
+    left: 212px;
     opacity: 0;
-    transition: transform 0.5s ease-in,
-    opacity 0.25s ease;
-    transform: translateX(-90px);
+    transition: opacity 255ms ease;
+    /* transition: transform 0.5s ease-in, */
+    /* opacity 0.25s ease; */
+    /* transform: translateX(-90px); */
     /* z-index: -1; */
 }
 
-.selector-container-open {
+.icon-selector-container-open {
     max-width: 138px;
     border: 2px solid var(--highlight-blue);
     display: flex;
@@ -91,8 +93,43 @@ h2 {
     top: 300px;
     left: 169px;
     opacity: 1;
-    transform: translateX(0px);
+    /* transform: translateX(0px); */
     z-index: 1;
+}
+
+.colour-selector-container-closed {
+    max-width: 138px;
+    border: 2px solid var(--highlight-blue);
+    background: var(--app-background);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 1px;
+    position: absolute;
+    top: 252px;
+    left: 67px;
+    opacity: 0;
+    transition: opacity 255ms ease;
+    /* transition: transform 0.5s ease-in,
+    opacity 0.25s ease; */
+    /* transform: translateX(-90px); */
+    /* z-index: -1; */
+}
+
+.colour-selector-container-open {
+    max-width: 138px;
+    border: 2px solid var(--highlight-blue);
+    background: var(--app-background);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 1px;
+    position: absolute;
+    top: 252px;
+    left: 67px;
+    opacity: 1;
+    /* transform: translateX(0px); */
+    /* z-index: 2; */
 }
 
 .selector-icons{
