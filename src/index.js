@@ -1,4 +1,4 @@
-    
+// Global variables.
     const colourButton = document.querySelector('#colour-button');
     const iconButton = document.querySelector('#icon-button');
     const colourSelectorContainer = document.querySelector('.colour-selector-container-closed');
@@ -7,9 +7,23 @@
     const iconInputs = document.querySelectorAll('.icon-inputs');
     const iconContainer = document.querySelector('#icon-container');
     const gridPickerIcon = document.querySelector('#grid-picker-icon');
+    const categoryInput = document.querySelector('#category-input');
 
+    const categories = [];
+    let incrementId = 0;
 
+// Object class
+    class Category {
+        constructor(name, icon, colour) {
+            incrementId++;
+            this.name = name;
+            this.icon = icon;
+            this.colour = colour;
+            this.active = false;
+        }
+    }
 
+// Colour picker
     colourButton.addEventListener('click', (e) => {
         console.log(e.currentTarget);
         console.log(colourSelectorContainer.classList);
@@ -25,6 +39,16 @@
         }
     });
     
+    function changePickerGridBackground (e) {
+            iconContainer.style.background = e.currentTarget.value;
+    }
+
+    colourInputs.forEach(input => {
+        input.addEventListener('input', changePickerGridBackground)
+    });
+
+
+// Icon picker
     iconButton.addEventListener('click', (e) => {
         console.log(e.currentTarget);
         console.log(iconSelectorContainer.classList);
@@ -40,16 +64,8 @@
         }
     });
 
-    function changePickerGridBackground (e) {
-            iconContainer.style.background = e.currentTarget.value;
-    }
-
-    colourInputs.forEach(input => {
-        input.addEventListener('input', changePickerGridBackground)
-    });
 
     function changePickerGridIcon (e) {
-            // iconContainer.style.background = e.currentTarget.value;
             gridPickerIcon.src = e.currentTarget.src;
     }
 
@@ -59,13 +75,7 @@
 
             
     
-    class Category {
-        constructor(name, icon, colour) {
-            this.name = name;
-            this.icon = icon;
-            this.colour = colour;
-        }
-    }
+    
 
     // const category = new Category ()
 
