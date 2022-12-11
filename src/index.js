@@ -1,6 +1,10 @@
     
-    const colourButton = document.querySelector("#colour-button");
+    const colourButton = document.querySelector('#colour-button');
     const colourSelectorContainer = document.querySelector('.colour-selector-container-closed');
+    const colourInputs = document.querySelectorAll('.colour-inputs');
+    const iconContainer = document.querySelector('#icon-container');
+
+
 
     colourButton.addEventListener('click', (e) => {
         console.log(e.currentTarget);
@@ -15,6 +19,14 @@
             colourSelectorContainer.classList.remove('colour-selector-container-open');
             colourSelectorContainer.classList.add('colour-selector-container-closed');
         }
+    });
+
+    function changeBackgroundColour (e) {
+            iconContainer.style.background = e.currentTarget.value;
+    }
+
+    colourInputs.forEach(input => {
+        input.addEventListener('input', changeBackgroundColour)
     });
 
             

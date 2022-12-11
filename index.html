@@ -39,14 +39,14 @@
         />
 
         <div id="picker-grid" class="margin-left stack">
-          <span id="icon-container">
+          <div id="icon-container">
             <i class="fa-solid fa-ghost selector-icons"></i>
-          </span>
+          </div>
           <p id="picker-grid-paragraph">Category Logo</p>
-          <button id="colour-button">
+          <button class="picker-buttons" id="colour-button">
             Colour <i class="fa-solid fa-circle-plus"></i>
           </button>
-          <button id="icon-button">
+          <button class="picker-buttons" id="icon-button">
             Icon <i class="fa-solid fa-circle-plus"></i>
           </button>
         </div>
@@ -65,18 +65,44 @@
         </div>
 
         <div class="colour-selector-container-closed">
-          <input type="color" id="coral" name="coral" value="#e66465" />
           <input
             type="color"
+            class="colour-inputs"
+            id="coral"
+            name="coral"
+            value="#e66465"
+          />
+          <input
+            type="color"
+            class="colour-inputs"
             id="forest-green"
             name="forest-green"
             value="#32a852"
           />
-          <input type="color" id="blue" name="blue" value="#0e20c7" />
-          <input type="color" id="red" name="red" value="#c7140e" />
-          <input type="color" id="pink" name="pink" value="#c70e9c" />
           <input
             type="color"
+            class="colour-inputs"
+            id="blue"
+            name="blue"
+            value="#0e20c7"
+          />
+          <input
+            type="color"
+            class="colour-inputs"
+            id="red"
+            name="red"
+            value="#c7140e"
+          />
+          <input
+            type="color"
+            class="colour-inputs"
+            id="pink"
+            name="pink"
+            value="#c70e9c"
+          />
+          <input
+            type="color"
+            class="colour-inputs"
             id="light-green"
             name="light-green"
             value="#67c70e"
