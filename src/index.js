@@ -8,6 +8,9 @@
     const iconContainer = document.querySelector('#icon-container');
     const gridPickerIcon = document.querySelector('#grid-picker-icon');
     const categoryInput = document.querySelector('#category-input');
+    const nextButton = document.querySelector('#next-button');
+    const categoryDisplay = document.querySelector('#category-display');
+
 
     const categories = [];
     let incrementId = 0;
@@ -25,15 +28,13 @@
 
 // Colour picker
     colourButton.addEventListener('click', (e) => {
-        console.log(e.currentTarget);
-        console.log(colourSelectorContainer.classList);
+        // console.log(e.currentTarget);
+        // console.log(colourSelectorContainer.classList);
 
         if (colourSelectorContainer.className === ('colour-selector-container-closed')) {
-            console.log('closed');
             colourSelectorContainer.classList.remove('colour-selector-container-closed');
             colourSelectorContainer.classList.add('colour-selector-container-open');
         } else if (colourSelectorContainer.className === 'colour-selector-container-open') {
-            console.log('open');
             colourSelectorContainer.classList.remove('colour-selector-container-open');
             colourSelectorContainer.classList.add('colour-selector-container-closed');
         }
@@ -50,15 +51,13 @@
 
 // Icon picker
     iconButton.addEventListener('click', (e) => {
-        console.log(e.currentTarget);
-        console.log(iconSelectorContainer.classList);
+        // console.log(e.currentTarget);
+        // console.log(iconSelectorContainer.classList);
 
         if (iconSelectorContainer.className === ('icon-selector-container-closed')) {
-            console.log('closed');
             iconSelectorContainer.classList.remove('icon-selector-container-closed');
             iconSelectorContainer.classList.add('icon-selector-container-open');
         } else if (iconSelectorContainer.className === 'icon-selector-container-open') {
-            console.log('open');
             iconSelectorContainer.classList.remove('icon-selector-container-open');
             iconSelectorContainer.classList.add('icon-selector-container-closed');
         }
@@ -73,9 +72,29 @@
         input.addEventListener('click', changePickerGridIcon)
     });
 
-            
-    
-    
+// Next button
+    function renderNewCategory() {
+        const name = categoryInput.value;
+        const icon = gridPickerIcon.src;
+        const colour = iconContainer.style.background;
+        const newCategory = new Category (name, icon, colour);
+        console.log(newCategory);
 
-    // const category = new Category ()
+        // document.createElement('div')
+
+        // categoryDisplay.innerHTML = `<p>${name}</p>
+        // <div id="icon-container" style="background: ${colour};">
+        //     <img
+        //       src="${icon}"
+        //       id="grid-picker-icon"
+        //       class="grid-picker-icon"
+        //       alt=""
+        //     />
+        //   </div>`
+
+    }
+
+    nextButton.addEventListener('click', renderNewCategory)
+
+            
 
