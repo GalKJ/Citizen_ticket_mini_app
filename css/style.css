@@ -201,6 +201,29 @@ h2 {
 }
 
 /* Existing category styles */
+/* #existing-category-section {
+    min-height: 50%;
+} */
+
 #existing-category-header {
+    color: var(--text-colour);
+}
+
+#existing-category-list {
+    min-height: 50vh;
+}
+
+/* Next button */
+#next-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 13px;
+}
+
+.next-back-buttons {
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--highlight-blue);
     color: var(--text-colour);
 }
