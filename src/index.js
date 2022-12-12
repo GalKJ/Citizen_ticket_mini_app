@@ -9,7 +9,7 @@
     const gridPickerIcon = document.querySelector('#grid-picker-icon');
     const categoryInput = document.querySelector('#category-input');
     const nextButton = document.querySelector('#next-button');
-    const categoryDisplay = document.querySelector('.category-display');
+    const categoryDisplay = document.querySelector('.category-display-closed');
 
 
     const categories = [];
@@ -80,8 +80,6 @@
         const newCategory = new Category (name, icon, colour);
         console.log(newCategory);
 
-        // document.createElement('div')
-
         categoryDisplay.innerHTML = `
         <h3 style="color: white;">New Category</h3>
         <p style="font-size: 2rem; color: white;">${name}</p>
@@ -96,6 +94,8 @@
           <div id="back-button-container">
             <button class="next-back-buttons">Back</button>
           </div>`
+
+          categoryDisplay.classList.replace('category-display-closed', 'category-display-open');
 
     }
 
