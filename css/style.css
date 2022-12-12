@@ -225,6 +225,15 @@ h2 {
     justify-content: center;
     color: var(--text-colour);
     list-style: none;
+    background: var(--header-background);
+    justify-content: space-evenly;
+    max-width: 76vw;
+    margin: auto;
+}
+
+.trash-icons {
+    font-size: 25px;
+    align-self: center;
 }
 
 /* Next button */

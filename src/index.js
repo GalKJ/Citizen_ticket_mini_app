@@ -131,6 +131,7 @@
               alt=""
             />
           </div>
+          <i class="fa-solid fa-trash trash-icons"></i>
         `
         activeCategoryList.appendChild(newListItem)
 
