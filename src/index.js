@@ -9,6 +9,7 @@
     const gridPickerIcon = document.querySelector('#grid-picker-icon');
     const categoryInput = document.querySelector('#category-input');
     const nextButton = document.querySelector('#next-button');
+    const backButton = document.querySelector('#back-button');
     const categoryDisplay = document.querySelector('.category-display-closed');
 
 
@@ -80,26 +81,42 @@
         const newCategory = new Category (name, icon, colour);
         console.log(newCategory);
 
-        categoryDisplay.innerHTML = `
-        <h3 style="color: white;">New Category</h3>
-        <p style="font-size: 2rem; color: white;">${name}</p>
-        <div id="icon-container" style="background: ${colour};">
-            <img
-              src="${icon}"
-              id="grid-picker-icon"
-              class="grid-picker-icon"
-              alt=""
-            />
-          </div>
-          <div id="back-button-container">
-            <button class="next-back-buttons">Back</button>
-          </div>`
+        // categoryDisplay.innerHTML = `
+        // <h3 style="color: white;">New Category</h3>
+        // <p style="font-size: 2rem; color: white;">${name}</p>
+        // <div id="icon-container" style="background: ${colour};">
+        //     <img
+        //       src="${icon}"
+        //       id="grid-picker-icon"
+        //       class="grid-picker-icon"
+        //       alt=""
+        //     />
+        //   </div>
+        //   <div id="back-button-container">
+        //     <button id="back-button" class="next-back-buttons">Back</button>
+        //   </div>
+        //   `
+        const categoryDisplayParagraph = document.querySelector('#category-display-paragraph');
+        const categoryDisplayIcon = document.querySelector('#category-display-icon');
+        const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
+        
+        categoryDisplayParagraph.textContent = name;
+        categoryDisplayIcon.src = icon;
+        categoryDisplayIconContainer.style.background = colour;
 
-          categoryDisplay.classList.replace('category-display-closed', 'category-display-open');
-
+        categoryDisplay.classList.replace('category-display-closed', 'category-display-open');
     }
 
-    nextButton.addEventListener('click', renderNewCategory)
+    nextButton.addEventListener('click', renderNewCategory);
+
+// Back button
+    function addNewCategoryToList () {
+        const activeCategoryList = document.querySelector('#active-category-list');
+        console.log(activeCategoryList);
+    }
+
+    backButton.addEventListener('click', addNewCategoryToList);
+    
 
             
 

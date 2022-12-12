@@ -58,7 +58,7 @@
 
         <section class="margin-left stack" id="existing-category-section">
           <h3 id="existing-category-header">Select existing category</h3>
-          <ul id="existing-category-list"></ul>
+          <ul id="active-category-list"></ul>
         </section>
 
         <div class="icon-selector-container-closed">
@@ -123,7 +123,28 @@
           />
         </div>
 
-        <div class="category-display-closed"></div>
+        <!-- Category display -->
+        <div class="category-display-closed">
+          <h3 id="category-display-header" style="color: white">
+            New Category
+          </h3>
+          <p
+            id="category-display-paragraph"
+            style="font-size: 2rem; color: white"
+          ></p>
+          <div id="category-display-icon-container">
+            <img
+              src=""
+              id="category-display-icon"
+              class="grid-picker-icon"
+              alt=""
+            />
+          </div>
+
+          <div id="back-button-container">
+            <button id="back-button" class="next-back-buttons">Back</button>
+          </div>
+        </div>
 
         <section id="next-button-container">
           <button id="next-button" class="next-back-buttons">Next</button>
