@@ -233,3 +233,19 @@ h2 {
     background: var(--highlight-blue);
     color: var(--text-colour);
 }
+
+/* Category display */
+.category-display, .open{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--highlight-blue);
+    width: 80vw;
+    margin: auto;
+    position: absolute;
+    top: 350px;
+    right: 40px;
+    height: 223px;
+    z-index: 1;
+}
