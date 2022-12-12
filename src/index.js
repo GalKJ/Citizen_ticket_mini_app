@@ -82,15 +82,15 @@
 
         // document.createElement('div')
 
-        // categoryDisplay.innerHTML = `<p>${name}</p>
-        // <div id="icon-container" style="background: ${colour};">
-        //     <img
-        //       src="${icon}"
-        //       id="grid-picker-icon"
-        //       class="grid-picker-icon"
-        //       alt=""
-        //     />
-        //   </div>`
+        categoryDisplay.innerHTML = `<p style="font-size: 2rem;">${name}</p>
+        <div id="icon-container" style="background: ${colour};">
+            <img
+              src="${icon}"
+              id="grid-picker-icon"
+              class="grid-picker-icon"
+              alt=""
+            />
+          </div>`
 
     }
 

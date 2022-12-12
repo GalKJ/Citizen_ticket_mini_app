@@ -83,7 +83,7 @@ h2 {
     /* transition: transform 0.5s ease-in, */
     /* opacity 0.25s ease; */
     /* transform: translateX(-90px); */
-    /* z-index: -1; */
+    z-index: -1;
 }
 
 .icon-selector-container-open {
@@ -118,7 +118,7 @@ h2 {
     /* transition: transform 0.5s ease-in,
     opacity 0.25s ease; */
     /* transform: translateX(-90px); */
-    /* z-index: -1; */
+    z-index: -1;
 }
 
 .colour-selector-container-open {
@@ -135,7 +135,7 @@ h2 {
     opacity: 1;
     transition: opacity 255ms ease;
     /* transform: translateX(0px); */
-    /* z-index: 2; */
+    z-index: 1;
 }
 
 .icon-inputs, .grid-picker-icon{
