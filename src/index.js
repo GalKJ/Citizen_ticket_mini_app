@@ -24,6 +24,7 @@
             this.icon = icon;
             this.colour = colour;
             this.active = false;
+            this.Id = incrementId;
         }
     }
 
@@ -79,7 +80,9 @@
         const icon = gridPickerIcon.src;
         const colour = iconContainer.style.background;
         const newCategory = new Category (name, icon, colour);
+        categories.push(newCategory);
         console.log(newCategory);
+        console.log(categories);
 
         // categoryDisplay.innerHTML = `
         // <h3 style="color: white;">New Category</h3>
@@ -100,9 +103,9 @@
         const categoryDisplayIcon = document.querySelector('#category-display-icon');
         const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
         
-        categoryDisplayParagraph.textContent = name;
-        categoryDisplayIcon.src = icon;
-        categoryDisplayIconContainer.style.background = colour;
+        categoryDisplayParagraph.textContent = newCategory.name;
+        categoryDisplayIcon.src = newCategory.icon;
+        categoryDisplayIconContainer.style.background = newCategory.colour;
 
         categoryDisplay.classList.replace('category-display-closed', 'category-display-open');
     }
@@ -110,9 +113,32 @@
     nextButton.addEventListener('click', renderNewCategory);
 
 // Back button
-    function addNewCategoryToList () {
+    function addNewCategoryToList (e) {
         const activeCategoryList = document.querySelector('#active-category-list');
-        console.log(activeCategoryList);
+        const categoryDisplayParagraph = document.querySelector('#category-display-paragraph');
+        const categoryDisplayIcon = document.querySelector('#category-display-icon');
+        const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
+        const newListItem = document.createElement('li');
+        newListItem.classList = ('category-list-item stack')
+        
+        newListItem.innerHTML = `
+        <h2>${categoryDisplayParagraph.textContent}</h2>
+        <div id="icon-container" style="background: ${categoryDisplayIconContainer.style.background};">
+            <img
+              src="${categoryDisplayIcon.src}"
+              id="grid-picker-icon"
+              class="grid-picker-icon"
+              alt=""
+            />
+          </div>
+        `
+        activeCategoryList.appendChild(newListItem)
+
+        categoryDisplay.classList.replace('category-display-open', 'category-display-closed');
+
+        console.log(categoryDisplayParagraph.textContent);
+        console.log(categoryDisplayIcon.src);
+        console.log(categoryDisplayIconContainer.style.background);
     }
 
     backButton.addEventListener('click', addNewCategoryToList);

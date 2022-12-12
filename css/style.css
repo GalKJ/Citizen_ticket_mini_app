@@ -160,7 +160,7 @@ h2 {
     height: 55px;
     width: 55px;
     display: grid;
-    background: var(--default-icon-container-background);
+    /* background: var(--default-icon-container-background); */
     border: 7px solid var(--icon-border-colour);
     grid-row: 1 /3;
     align-self: center;
@@ -217,6 +217,14 @@ h2 {
 
 #active-category-list {
     min-height: 50vh;
+    padding: 0;
+}
+
+.category-list-item {
+    display: flex;
+    justify-content: center;
+    color: var(--text-colour);
+    list-style: none;
 }
 
 /* Next button */
