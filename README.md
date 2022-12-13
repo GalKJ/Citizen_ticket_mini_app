@@ -21,6 +21,7 @@ Please feel free to clone the repo using this url https://github.com/d0g3bl2/Cit
 ### Deployment
 
 The App should be viewed in a viewport 480px and below for mobile devices.
+
 To view the mini-app challenge on Github pages please follow this link [Click me!](https://d0g3bl2.github.io/Citizen_ticket_mini_app/). 
 
 ---
