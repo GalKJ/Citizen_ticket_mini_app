@@ -24,7 +24,7 @@
             this.icon = icon;
             this.colour = colour;
             this.active = false;
-            this.Id = incrementId;
+            this.id = incrementId;
         }
     }
 
@@ -112,6 +112,12 @@
 
     nextButton.addEventListener('click', renderNewCategory);
 
+    function closeCategoryDisplay() {
+        categoryDisplay.classList.replace('category-display-open', 'category-display-closed');
+        backButton.removeEventListener('click', closeCategoryDisplay);
+        backButton.addEventListener('click', manageNewCategoryList);
+    }
+
 // Back button
     function manageNewCategoryList (e) {
         const activeCategoryList = document.querySelector('#active-category-list');
@@ -120,7 +126,10 @@
         const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
         const newListItem = document.createElement('li');
         newListItem.classList = ('category-list-item stack margin-left')
-        
+        newListItem.id = incrementId;
+        // console.log(newListItem.id);
+        // console.log(incrementId);
+
         newListItem.innerHTML = `
         <h2>${categoryDisplayParagraph.textContent}</h2>
         <div id="icon-container" style="background: ${categoryDisplayIconContainer.style.background};">
@@ -147,6 +156,31 @@
             icon.addEventListener('click', (e) => {
                 const listItem = e.target.closest('li');
                 listItem.remove();
+                e.stopPropagation();
+            })
+        })
+
+        console.log(newListItem);
+
+        const newListItems = document.querySelectorAll('.category-list-item');
+        
+        newListItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+
+                const currentItem = categories.find(object => object.id == e.currentTarget.id);
+                // console.log(currentItem.name);
+                categoryDisplayParagraph.textContent = currentItem.name;
+                categoryDisplayIcon.src = currentItem.icon;
+                categoryDisplayIconContainer.style.background = currentItem.colour;
+
+                categoryDisplay.classList.replace('category-display-closed', 'category-display-open');
+
+                backButton.removeEventListener('click', manageNewCategoryList);
+                backButton.addEventListener('click', closeCategoryDisplay);
+            
+
+                // console.log(e.target.closest('h2').textContent);
+                // console.log(categories.find(object => object.id == e.currentTarget.id));
             })
         })
     }
