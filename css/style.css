@@ -228,7 +228,6 @@ h2 {
     background: var(--header-background);
     justify-content: space-evenly;
     max-width: 76vw;
-    margin: auto;
 }
 
 .trash-icons {

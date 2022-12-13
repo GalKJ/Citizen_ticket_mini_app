@@ -113,13 +113,13 @@
     nextButton.addEventListener('click', renderNewCategory);
 
 // Back button
-    function addNewCategoryToList (e) {
+    function manageNewCategoryList (e) {
         const activeCategoryList = document.querySelector('#active-category-list');
         const categoryDisplayParagraph = document.querySelector('#category-display-paragraph');
         const categoryDisplayIcon = document.querySelector('#category-display-icon');
         const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
         const newListItem = document.createElement('li');
-        newListItem.classList = ('category-list-item stack')
+        newListItem.classList = ('category-list-item stack margin-left')
         
         newListItem.innerHTML = `
         <h2>${categoryDisplayParagraph.textContent}</h2>
@@ -151,7 +151,7 @@
         })
     }
 
-    backButton.addEventListener('click', addNewCategoryToList);
+    backButton.addEventListener('click', manageNewCategoryList);
     
 
             
