@@ -28,22 +28,9 @@
         }
     }
 
-// Check if local storage exists
-    function checkLocalStorage() {
-        if (!localStorage.getItem('Categories')) {
-            populateStorage(categories);
-          } else {
-            updateCategoryArray(categories);
-          }
-    }
-
-    checkLocalStorage();
-
 // Colour picker
     colourButton.addEventListener('click', (e) => {
-        // console.log(e.currentTarget);
-        // console.log(colourSelectorContainer.classList);
-
+        
         if (colourSelectorContainer.className === ('colour-selector-container-closed')) {
             colourSelectorContainer.classList.remove('colour-selector-container-closed');
             colourSelectorContainer.classList.add('colour-selector-container-open');
@@ -63,10 +50,8 @@
 
 
 // Icon picker
-    iconButton.addEventListener('click', (e) => {
-        // console.log(e.currentTarget);
-        // console.log(iconSelectorContainer.classList);
-
+    iconButton.addEventListener('click', () => {
+        
         if (iconSelectorContainer.className === ('icon-selector-container-closed')) {
             iconSelectorContainer.classList.remove('icon-selector-container-closed');
             iconSelectorContainer.classList.add('icon-selector-container-open');
@@ -92,25 +77,7 @@
         const colour = iconContainer.style.background;
         const newCategory = new Category (name, icon, colour);
         categories.push(newCategory);
-        localStorage.setItem('Categories', JSON.stringify(categories));
-        console.log(newCategory);
-        console.log(categories);
-
-        // categoryDisplay.innerHTML = `
-        // <h3 style="color: white;">New Category</h3>
-        // <p style="font-size: 2rem; color: white;">${name}</p>
-        // <div id="icon-container" style="background: ${colour};">
-        //     <img
-        //       src="${icon}"
-        //       id="grid-picker-icon"
-        //       class="grid-picker-icon"
-        //       alt=""
-        //     />
-        //   </div>
-        //   <div id="back-button-container">
-        //     <button id="back-button" class="next-back-buttons">Back</button>
-        //   </div>
-        //   `
+        
         const categoryDisplayParagraph = document.querySelector('#category-display-paragraph');
         const categoryDisplayIcon = document.querySelector('#category-display-icon');
         const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
@@ -141,8 +108,6 @@
         const newListItem = document.createElement('li');
         newListItem.classList = ('category-list-item stack margin-left')
         newListItem.id = incrementId;
-        // console.log(newListItem.id);
-        // console.log(incrementId);
 
         newListItem.innerHTML = `
         <h2>${categoryDisplayParagraph.textContent}</h2>
@@ -160,10 +125,6 @@
 
         categoryDisplay.classList.replace('category-display-open', 'category-display-closed');
 
-        // console.log(categoryDisplayParagraph.textContent);
-        // console.log(categoryDisplayIcon.src);
-        // console.log(categoryDisplayIconContainer.style.background);
-
         const trashCanIcons = document.querySelectorAll('.trash-icons');
         
         trashCanIcons.forEach(icon => {
@@ -174,15 +135,13 @@
             })
         })
 
-        console.log(newListItem);
-
         const newListItems = document.querySelectorAll('.category-list-item');
         
         newListItems.forEach(item => {
             item.addEventListener('click', (e) => {
 
                 const currentItem = categories.find(object => object.id == e.currentTarget.id);
-                // console.log(currentItem.name);
+                
                 categoryDisplayParagraph.textContent = currentItem.name;
                 categoryDisplayIcon.src = currentItem.icon;
                 categoryDisplayIconContainer.style.background = currentItem.colour;
@@ -191,10 +150,6 @@
 
                 backButton.removeEventListener('click', manageNewCategoryList);
                 backButton.addEventListener('click', closeCategoryDisplay);
-            
-
-                // console.log(e.target.closest('h2').textContent);
-                // console.log(categories.find(object => object.id == e.currentTarget.id));
             })
         })
     }

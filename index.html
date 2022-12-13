@@ -22,6 +22,7 @@
     <title>Citizen Ticket Mini App</title>
   </head>
   <body>
+    <!-- App container   -->
     <div id="container">
       <div id="app-container">
         <h2>Add to inventory</h2>
@@ -56,6 +57,7 @@
           </button>
         </div>
 
+        <!-- Existing category list -->
         <section class="stack" id="existing-category-section">
           <h3 class="margin-left stack" id="existing-category-header">
             Select existing category
@@ -63,12 +65,8 @@
           <ul id="active-category-list"></ul>
         </section>
 
+        <!-- Icon picker -->
         <div class="icon-selector-container-closed">
-          <!-- <i class="fa-solid fa-martini-glass-citrus icon-inputs"></i>
-          <i class="fa-solid fa-hotdog icon-inputs"></i>
-          <i class="fa-solid fa-shirt icon-inputs"></i>
-          <i class="fa-solid fa-bolt icon-inputs"></i>
-          <i class="fa-solid fa-ghost icon-inputs"></i> -->
           <img
             src="./imgs/icons-cherry-cheesecake-40.png"
             alt=""
@@ -80,6 +78,7 @@
           <img src="./imgs/icons-jumper-40.png" alt="" class="icon-inputs" />
         </div>
 
+        <!-- Colour picker -->
         <div class="colour-selector-container-closed">
           <input
             type="color"
@@ -126,7 +125,11 @@
         </div>
 
         <!-- Category display -->
-        <div class="category-display-closed">
+        <div
+          class="category-display-closed"
+          id="category-display"
+          data-id="1792"
+        >
           <h3 id="category-display-header" style="color: white">
             New Category
           </h3>
@@ -148,12 +151,12 @@
           </div>
         </div>
 
+        <!-- Next button -->
         <section id="next-button-container">
           <button id="next-button" class="next-back-buttons">Next</button>
         </section>
       </div>
     </div>
-    <script src="./src/local_storage.js"></script>
     <script src="./src/index.js"></script>
     <script src="./src/logos.js"></script>
   </body>
