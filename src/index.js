@@ -28,6 +28,17 @@
         }
     }
 
+// Check if local storage exists
+    function checkLocalStorage() {
+        if (!localStorage.getItem('Categories')) {
+            populateStorage(categories);
+          } else {
+            updateCategoryArray(categories);
+          }
+    }
+
+    checkLocalStorage();
+
 // Colour picker
     colourButton.addEventListener('click', (e) => {
         // console.log(e.currentTarget);
@@ -117,6 +128,8 @@
         backButton.removeEventListener('click', closeCategoryDisplay);
         backButton.addEventListener('click', manageNewCategoryList);
     }
+
+
 
 // Back button
     function manageNewCategoryList (e) {
