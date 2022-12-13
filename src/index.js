@@ -92,6 +92,7 @@
         const colour = iconContainer.style.background;
         const newCategory = new Category (name, icon, colour);
         categories.push(newCategory);
+        localStorage.setItem('Categories', JSON.stringify(categories));
         console.log(newCategory);
         console.log(categories);
 

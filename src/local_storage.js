@@ -7,7 +7,7 @@ function populateStorage(element) {
     let classArray = localStorage.getItem('Categories');
     
 
-    element.value = classArray;
+    element.value = JSON.parse(classArray);
 }
 
 // Function to get values from local storage and render them in the UI.
@@ -16,5 +16,5 @@ function updateCategoryArray(element) {
     let classArray = localStorage.getItem('Categories');
     
     
-    element.value = classArray;
+    element.value = JSON.parse(classArray);
 }
