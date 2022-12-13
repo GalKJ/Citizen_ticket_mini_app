@@ -137,9 +137,18 @@
 
         categoryDisplay.classList.replace('category-display-open', 'category-display-closed');
 
-        console.log(categoryDisplayParagraph.textContent);
-        console.log(categoryDisplayIcon.src);
-        console.log(categoryDisplayIconContainer.style.background);
+        // console.log(categoryDisplayParagraph.textContent);
+        // console.log(categoryDisplayIcon.src);
+        // console.log(categoryDisplayIconContainer.style.background);
+
+        const trashCanIcons = document.querySelectorAll('.trash-icons');
+        
+        trashCanIcons.forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                const listItem = e.target.closest('li');
+                listItem.remove();
+            })
+        })
     }
 
     backButton.addEventListener('click', addNewCategoryToList);
