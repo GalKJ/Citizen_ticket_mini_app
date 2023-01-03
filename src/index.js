@@ -168,6 +168,10 @@
         const categoryDisplayIcon = document.querySelector('#category-display-icon');
         const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
 
+        if (localStorage.getItem('incrementId') === null) {
+            localStorage.setItem('incrementId', 0);
+        }
+
         const incrementIdString = localStorage.getItem('incrementId');
         incrementId = JSON.parse(incrementIdString);
 
