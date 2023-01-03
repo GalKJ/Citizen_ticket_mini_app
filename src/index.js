@@ -13,23 +13,23 @@
     const categoryDisplay = document.querySelector('.category-display-closed');
 
 
-    const categories = [];
+    // const categories = [];
     let incrementId = 0;
 
 // Object class
     class Category {
-        constructor(name, icon, colour) {
+        constructor(name, icon, colour, id, active) {
             incrementId++;
             this.name = name;
             this.icon = icon;
             this.colour = colour;
-            this.active = false;
-            this.id = incrementId;
+            this.active = active;
+            this.id = id;
         }
     }
 
 // Colour picker
-    colourButton.addEventListener('click', (e) => {
+    colourButton.addEventListener('click', () => {
         
         if (colourSelectorContainer.className === ('colour-selector-container-closed')) {
             colourSelectorContainer.classList.remove('colour-selector-container-closed');
@@ -75,8 +75,13 @@
         const name = categoryInput.value;
         const icon = gridPickerIcon.src;
         const colour = iconContainer.style.background;
-        const newCategory = new Category (name, icon, colour);
-        categories.push(newCategory);
+        const id = incrementId;
+        const active = true;
+        const newCategory = new Category (name, icon, colour, id, active);
+        // categories.push(newCategory);
+
+        localStorage.setItem(`category${id}`, JSON.stringify(newCategory));
+        localStorage.setItem('incrementId', incrementId);
         
         const categoryDisplayParagraph = document.querySelector('#category-display-paragraph');
         const categoryDisplayIcon = document.querySelector('#category-display-icon');
@@ -130,6 +135,7 @@
         trashCanIcons.forEach(icon => {
             icon.addEventListener('click', (e) => {
                 const listItem = e.target.closest('li');
+                localStorage.removeItem(`category${listItem.id - 1}`);
                 listItem.remove();
                 e.stopPropagation();
             })
