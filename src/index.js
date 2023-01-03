@@ -146,8 +146,9 @@
         newListItems.forEach(item => {
             item.addEventListener('click', (e) => {
 
-                const currentItem = categories.find(object => object.id == e.currentTarget.id);
-                
+                // const currentItem = categories.find(object => object.id == e.currentTarget.id);
+                const currentItemString = localStorage.getItem(`category${e.currentTarget.id - 1}`);
+                const currentItem = JSON.parse(currentItemString);
                 categoryDisplayParagraph.textContent = currentItem.name;
                 categoryDisplayIcon.src = currentItem.icon;
                 categoryDisplayIconContainer.style.background = currentItem.colour;
