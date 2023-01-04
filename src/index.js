@@ -146,7 +146,7 @@
         newListItems.forEach(item => {
             item.addEventListener('click', (e) => {
 
-                const currentItemString = localStorage.getItem(`category${e.currentTarget.id - 1}`);
+                const currentItemString = localStorage.getItem(`category${e.currentTarget.id}`);
                 const currentItem = JSON.parse(currentItemString);
                 categoryDisplayParagraph.textContent = currentItem.name;
                 categoryDisplayIcon.src = currentItem.icon;
@@ -216,7 +216,7 @@
         newListItems.forEach(item => {
             item.addEventListener('click', (e) => {
 
-                const currentItemString = localStorage.getItem(`category${e.currentTarget.id - 1}`);
+                const currentItemString = localStorage.getItem(`category${e.currentTarget.id}`);
                 const currentItem = JSON.parse(currentItemString);
                 categoryDisplayParagraph.textContent = currentItem.name;
                 categoryDisplayIcon.src = currentItem.icon;
