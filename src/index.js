@@ -112,7 +112,7 @@
         const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
         const newListItem = document.createElement('li');
         newListItem.classList = ('category-list-item stack margin-left')
-        newListItem.id = incrementId;
+        newListItem.id = incrementId - 1;
 
         newListItem.innerHTML = `
         <h2>${categoryDisplayParagraph.textContent}</h2>
@@ -135,7 +135,7 @@
         trashCanIcons.forEach(icon => {
             icon.addEventListener('click', (e) => {
                 const listItem = e.target.closest('li');
-                localStorage.removeItem(`category${listItem.id - 1}`);
+                localStorage.removeItem(`category${listItem.id}`);
                 listItem.remove();
                 e.stopPropagation();
             })
@@ -205,7 +205,7 @@
         trashCanIcons.forEach(icon => {
             icon.addEventListener('click', (e) => {
                 const listItem = e.target.closest('li');
-                localStorage.removeItem(`category${listItem.id - 1}`);
+                localStorage.removeItem(`category${listItem.id}`);
                 listItem.remove();
                 e.stopPropagation();
             })
