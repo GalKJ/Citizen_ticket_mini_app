@@ -112,7 +112,7 @@
         const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
         const newListItem = document.createElement('li');
         newListItem.classList = ('category-list-item stack margin-left')
-        newListItem.id = incrementId;
+        newListItem.id = incrementId - 1;
 
         newListItem.innerHTML = `
         <h2>${categoryDisplayParagraph.textContent}</h2>
@@ -135,7 +135,7 @@
         trashCanIcons.forEach(icon => {
             icon.addEventListener('click', (e) => {
                 const listItem = e.target.closest('li');
-                localStorage.removeItem(`category${listItem.id - 1}`);
+                localStorage.removeItem(`category${listItem.id}`);
                 listItem.remove();
                 e.stopPropagation();
             })
@@ -146,7 +146,6 @@
         newListItems.forEach(item => {
             item.addEventListener('click', (e) => {
 
-                // const currentItem = categories.find(object => object.id == e.currentTarget.id);
                 const currentItemString = localStorage.getItem(`category${e.currentTarget.id - 1}`);
                 const currentItem = JSON.parse(currentItemString);
                 categoryDisplayParagraph.textContent = currentItem.name;
@@ -162,6 +161,76 @@
     }
 
     backButton.addEventListener('click', manageNewCategoryList);
+
+    function loadCategories() {
+        const activeCategoryList = document.querySelector('#active-category-list');
+        const categoryDisplayParagraph = document.querySelector('#category-display-paragraph');
+        const categoryDisplayIcon = document.querySelector('#category-display-icon');
+        const categoryDisplayIconContainer = document.querySelector('#category-display-icon-container');
+
+        if (localStorage.getItem('incrementId') === null) {
+            localStorage.setItem('incrementId', 0);
+        }
+
+        const incrementIdString = localStorage.getItem('incrementId');
+        incrementId = JSON.parse(incrementIdString);
+
+        for (let i = 0; i < incrementId; i++) {
+            const categoryString = localStorage.getItem(`category${i}`);
+            const category = JSON.parse(categoryString);
+
+            if (category === null) { continue; }
+
+            const newListItem = document.createElement('li');
+            newListItem.classList = ('category-list-item stack margin-left')
+            newListItem.id = category.id;
+
+            newListItem.innerHTML = `
+            <h2>${category.name}</h2>
+            <div id="icon-container" style="background: ${category.colour};">
+                <img
+                src="${category.icon}"
+                id="grid-picker-icon"
+                class="grid-picker-icon"
+                alt=""
+                />
+            </div>
+            <i class="fa-solid fa-trash trash-icons"></i>
+            `
+            activeCategoryList.appendChild(newListItem)
+        }
+
+        const trashCanIcons = document.querySelectorAll('.trash-icons');
+        
+        trashCanIcons.forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                const listItem = e.target.closest('li');
+                localStorage.removeItem(`category${listItem.id}`);
+                listItem.remove();
+                e.stopPropagation();
+            })
+        })
+
+        const newListItems = document.querySelectorAll('.category-list-item');
+        
+        newListItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+
+                const currentItemString = localStorage.getItem(`category${e.currentTarget.id - 1}`);
+                const currentItem = JSON.parse(currentItemString);
+                categoryDisplayParagraph.textContent = currentItem.name;
+                categoryDisplayIcon.src = currentItem.icon;
+                categoryDisplayIconContainer.style.background = currentItem.colour;
+
+                categoryDisplay.classList.replace('category-display-closed', 'category-display-open');
+
+                backButton.removeEventListener('click', manageNewCategoryList);
+                backButton.addEventListener('click', closeCategoryDisplay);
+            })
+        })
+    }
+
+    loadCategories();
     
 
             
